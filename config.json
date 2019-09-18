@@ -1,8 +1,8 @@
 {
   "SDK_install_path" : "/Users/ztian/Documents/xxx/sugar-mobile-sdk",
-  "sample_app_path" : "/Users/ztian/Documents/xxx/sample_sdk_app",
+  "sample_app_install_path" : "/Users/ztian/Documents/xxx/sample_sdk_app",
   "cli": {
-    "generate_app_cli": "sdk/generate-app",
+    "generate_app_cli": "sdk/generate-app -u hhh -s -n",
     "init_native_cli": "sdk init-native",
     "build_qa_android_cli": "sdk build -s qa -p android",
     "build_qa_ios_cli": "sdk build -s qa -p ios",

@@ -1,14 +1,13 @@
 from zipfile import ZipFile, ZipInfo
 import os
 import subprocess
-import json
+#import json
 import shutil
 
 
-with open('config.json') as config_file:
-    data = json.load(config_file)
-
-sdk_install_path = data["SDK_install_path"]
+#with open('config.json') as config_file:
+#    data = json.load(config_file)
+#sdk_install_path = data["SDK_install_path"]
 
 #Subclassing "ZipFile". Because Python ZipFile removes execute permissions from binaries
 #The reason for this can be found in the _extract_member() method in zipfile.py,
@@ -50,18 +49,21 @@ def install_sdk(file):
     zf.close()
 
     if os.path.exists(path):
-        install_command = path + "/install"
-        if os.path.exists(install_command):
-            #subprocess.Popen(['chmod', '-R', '+x', path])
-            cp = subprocess.run(install_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            #print (cp.returncode)
-            if cp.returncode == 0:
-                shutil.rmtree(path)
-                print ("SDK is installed at %s" % sdk_install_path)
-                return "Done"
-            else:
-                print ("There seems some errors in the installation process.")
-                return "Error"
+        install_command = path + "/install" + " > logs/install_sdk.log"
+        #print (install_command)
+        #subprocess.Popen(['chmod', '-R', '+x', path])
+        cp = subprocess.run(install_command, shell=True
+            , stdout=subprocess.PIPE
+            , stderr=subprocess.PIPE
+            )
+        #print (cp.returncode)
+        if cp.returncode == 0:
+             shutil.rmtree(path)
+             print ("SDK is installed.")
+             return "Done"
+        else:
+             print ("There seems some errors in the SDK installation process. Code: %s" % cp.returncode)
+             return "Error"
     else:
         print ("NO sdk extract folder.")
         return "Error"
