@@ -9,10 +9,10 @@ import shutil
 #    data = json.load(config_file)
 #sdk_install_path = data["SDK_install_path"]
 
-#Subclassing "ZipFile". Because Python ZipFile removes execute permissions from binaries
-#The reason for this can be found in the _extract_member() method in zipfile.py,
-#it only calls shutil.copyfileobj() which will write the output file without any execute bits.
-#The easiest way to solve this is by subclassing ZipFile and changing extract()
+#-- Subclassing "ZipFile". Because Python ZipFile removes execute permissions from binaries
+#-- The reason for this can be found in the _extract_member() method in zipfile.py,
+#-- it only calls shutil.copyfileobj() which will write the output file without any execute bits.
+#-- The easiest way to solve this is by subclassing ZipFile and changing extract()
 class MyZipFile(ZipFile):
 
     def extract(self, member, path=None, pwd=None):
@@ -41,7 +41,7 @@ class MyZipFile(ZipFile):
             self.extract(zipinfo, path, pwd)
 
 
-def install_sdk(file):
+def installSdk(file):
     path = "./" + file[:-4]
 
     zf = MyZipFile(file, 'r')
