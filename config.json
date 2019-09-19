@@ -8,5 +8,6 @@
     "build_qa_ios_cli": "sdk build -s qa -p ios",
     "build_store_android_cli": "sdk build -s store -p android",
     "build_store_ios_cli": "sdk build -s store -p android"
-  }
+  },
+  "android_emulator": "Nexus_6P_API_28"
 }
