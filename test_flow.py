@@ -24,7 +24,7 @@ sample_app_path = sample_app_install_path + "/" + sample_app_name
 android_build_file = sample_app_path + "/build/android/" + sample_app_name + "CRM.apk"
 ios_build_file = sample_app_path + "/build/ios/" + sample_app_name + "CRM.ipa"
 
-'''
+
 #-- 1. install sdk file
 
 if sdk_file == '':
@@ -65,7 +65,7 @@ if sample_app_name != '' and os.path.exists(sample_app_path):
 else:
     print ("Something is wrong.")
 
-'''
+
 #-- 4. install native build app to device/emulator
 
 if android_device != '' and os.path.exists(android_build_file):

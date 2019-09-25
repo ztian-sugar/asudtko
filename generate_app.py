@@ -13,7 +13,7 @@ def generateSampleApp(sdk_path, app_name, app_path):
 
     #-- temp solution to bypass the Android generating release key when create sample app
     #-- by removing the lines of code in tools/tasks/generate-custom-config
-    #-- no more needed since we can use subprocess communicate to pass input
+    #-- *** no longer needed since we can use subprocess communicate to pass input
     #file_to_remove_line = sdk_path + "/tools/tasks/generate-custom-config.js"
     #removeLinesInFile(file_to_remove_line, "86", "91")
 

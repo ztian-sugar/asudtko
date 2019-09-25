@@ -25,7 +25,7 @@ def installNative(app_file, device):
     device = subprocess.Popen(start_device_command, shell=True
            , stdout=subprocess.PIPE
            , stderr=subprocess.PIPE)
-    sleep(5)
+    sleep(30)
     print ("...device launched")
     #--- install app
     print ("install app...")
@@ -39,7 +39,7 @@ def installNative(app_file, device):
     launch = subprocess.run(launch_app_command, shell=True
            , stdout=subprocess.PIPE
            , stderr=subprocess.PIPE)
-    sleep(5)
+    sleep(10)
     print ("...app launched")
     #--- shutdown device/emulator
     print ("shutdown device...")
