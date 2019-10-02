@@ -3,6 +3,7 @@ from generate_app import *
 from build_app import *
 from install_native_build import *
 import os
+import sys
 import json
 import argparse
 
@@ -28,7 +29,8 @@ ios_build_file = sample_app_path + "/build/ios/" + sample_app_name + "CRM.ipa"
 #-- 1. install sdk file
 
 if sdk_file == '':
-    print ("SDK file needs to pass in CLI.")
+    #print ("SDK file needs to pass in CLI.")
+    sys.exit("SDK file needs to pass in CLI.")
 else:
     print ("+++Start SDK installation process...")
     install = installSdk(sdk_file)
@@ -36,7 +38,8 @@ else:
         print ("+++Complete SDK installation process.")
         os.remove(sdk_file)
     elif install == "Error":
-        print ("!!!SDK installation process has error, please check.")
+        #print ("!!!SDK installation process has error, please check.")
+        sys.exit("!!!SDK installation process has error, please check.")
 
 
 #-- 2. generate sample app
@@ -47,9 +50,11 @@ if sample_app_name != '' and os.path.exists(sample_app_install_path) and os.path
     if sample == "Done":
         print ("+++Complete sample app generation.")
     elif sample == "Error":
-        print ("!!!Sample app generation has error, please check.")
+        #print ("!!!Sample app generation has error, please check.")
+        sys.exit("!!!Sample app generation has error, please check.")
 else:
-    print ("Something is wrong.")
+    #print ("Something is wrong.")
+    sys.exit("Something is wrong to start generating the sample app.")
 
 
 #-- 3. build native android app from sample code
@@ -61,9 +66,11 @@ if sample_app_name != '' and os.path.exists(sample_app_path):
     if qa_android == "Done":
             print ("+++Complete native init and Android app building.")
     elif qa_android == "Error":
-            print ("!!!Native init or Android app building has error, please check.")
+            #print ("!!!Native init or Android app building has error, please check.")
+            sys.exit("!!!Native init or Android app building has error, please check.")
 else:
-    print ("Something is wrong.")
+    #print ("Something is wrong.")
+    sys.exit("Something is wrong to start building native android app.")
 
 
 #-- 4. install native build app to device/emulator
@@ -74,6 +81,8 @@ if android_device != '' and os.path.exists(android_build_file):
     if launch == "Done":
         print ("+++Complete installing and launching app on device.")
     else:
-        print ("!!!There are errors during installing and launching app on device")
+        #print ("!!!There are errors during installing and launching app on device")
+        sys.exit("!!!There are errors during installing and launching app on device")
 else:
-    print ("Something is wrong.")
+    #print ("Something is wrong.")
+    sys.exit("Something is wrong to start installing native app.")
