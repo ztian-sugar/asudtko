@@ -37,7 +37,7 @@ def buildApp(sample_app_path, sample_app_name, scheme, platform):
             print ("Build is done. Build file is at %s" % build_file)
             return "Done"
         else:
-            print ("There seems some erros in building file. Code: %s" % cp_build.returncode)
+            print ("There seems some errors in building file. Code: %s" % cp_build.returncode)
             return "Error"
     else:
         print ("There seems some errors in the native init process. Code: %s" % cp_init.returncode)
