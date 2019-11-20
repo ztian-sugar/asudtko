@@ -25,21 +25,21 @@ def installNative(app_file, device):
     device = subprocess.Popen(start_device_command, shell=True
            , stdout=subprocess.PIPE
            , stderr=subprocess.PIPE)
-    sleep(30)
+    sleep(5)
     print ("...device launched")
     #--- install app
     print ("install app...")
     install = subprocess.run(install_command, shell=True
             , stdout=subprocess.PIPE
             , stderr=subprocess.PIPE)
-    sleep(10)
+    sleep(5)
     print ("...app installed")
     #--- launch app
     print ("launch app...")
     launch = subprocess.run(launch_app_command, shell=True
            , stdout=subprocess.PIPE
            , stderr=subprocess.PIPE)
-    sleep(10)
+    sleep(5)
     print ("...app launched")
     #--- shutdown device/emulator
     print ("shutdown device...")
