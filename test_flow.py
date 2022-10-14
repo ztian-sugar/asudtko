@@ -22,8 +22,8 @@ sdk_file = args.sdkFile
 sdk_path = sdk_install_path + "/" + sdk_file[17:-4]
 sample_app_name = sdk_file[17:25].replace('.', '')
 sample_app_path = sample_app_install_path + "/" + sample_app_name
-android_build_file = sample_app_path + "/build/android/" + sample_app_name + "CRM.apk"
-ios_build_file = sample_app_path + "/build/ios/" + sample_app_name + "CRM.ipa"
+android_build_file = sample_app_path + "/build/android/" + sample_app_name + "CRM_0.1.0.1.apk"
+ios_build_file = sample_app_path + "/build/ios/" + sample_app_name + "CRM_0.1.0.1.ipa"
 
 
 #-- 1. install sdk file
@@ -75,14 +75,14 @@ else:
 
 #-- 4. install native build app to device/emulator
 
-if android_device != '' and os.path.exists(android_build_file):
-    print ("+++Start installing and launching android app on device...")
-    launch = installNative(android_build_file, android_device)
-    if launch == "Done":
-        print ("+++Complete installing and launching app on device.")
-    else:
-        #print ("!!!There are errors during installing and launching app on device")
-        sys.exit("!!!There are errors during installing and launching app on device")
-else:
-    #print ("Something is wrong.")
-    sys.exit("Something is wrong to start installing native app.")
+#if android_device != '' and os.path.exists(android_build_file):
+#    print ("+++Start installing and launching android app on device...")
+#    launch = installNative(android_build_file, android_device)
+#    if launch == "Done":
+#        print ("+++Complete installing and launching app on device.")
+#    else:
+#        #print ("!!!There are errors during installing and launching app on device")
+#        sys.exit("!!!There are errors during installing and launching app on device")
+#else:
+#    #print ("Something is wrong.")
+#    sys.exit("Something is wrong to start installing native app.")

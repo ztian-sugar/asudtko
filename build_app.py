@@ -16,9 +16,10 @@ def buildApp(sample_app_path, sample_app_name, scheme, platform):
     init_native_command = sample_app_path + "/" + init_native_cli + " > logs/init_native.log"
 
     if platform == "android":
-        build_file = sample_app_path + "/build/" + platform + "/" + sample_app_name + "CRM.apk"
+        #build_file = sample_app_path + "/build/" + platform + "/" + sample_app_name + "CRM_0.1.0.1.apk"
+        build_file = sample_app_path + "/build/" + platform + "/" + sample_app_name + "CRM_0.1.0.1.aab"
     elif platform == "ios":
-        build_file = sample_app_path + "/build/" + platform + "/" + sample_app_name + "CRM.ipa"
+        build_file = sample_app_path + "/build/" + platform + "/" + sample_app_name + "CRM_0.1.0.1.ipa"
     else:
         print ("We only support Android and iOS build for now.")
         return "Error"
